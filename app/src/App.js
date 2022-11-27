@@ -9,6 +9,7 @@ import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
 import CocktailsList from './Pages/CocktailsList';
+import Search from './Components/Search';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <Search />
       <RouterProvider router={router} />
       <Footer />
     </>
