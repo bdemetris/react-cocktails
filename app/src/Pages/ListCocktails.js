@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
-import { Container, Card, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Container, Card, Row  } from 'react-bootstrap';
+import { useParams, Link } from 'react-router-dom';
 
 const cardStyle = {
     width: '18rem',
@@ -9,8 +9,8 @@ const cardStyle = {
 const GET_COCKTAILS = gql`
   query GetCocktails($name: String!) {
     cocktails(name: $name) {
+      id
       name
-      instructions
       image
     }
   }
@@ -31,15 +31,15 @@ function CocktailsList() {
             <Container className="container-fluid mt-4">
                 <Row>
                     {
-                        data.cocktails.map(({ name, instructions, image }) => (
+                        data.cocktails.map(({ id, name, image }) => (
+                            
                             <Card border="secondary" height="auto" style={cardStyle} className="my-2 mx-2">
+                                <Link to={`/cocktail/${id}`} className="link-text">
                                 <Card.Img src={image} className="my-3" />
                                 <Card.Body>
                                     <Card.Title>{name}</Card.Title>
-                                    <Card.Text>
-                                        {instructions}
-                                    </Card.Text>
                                 </Card.Body>
+                                </Link>
                             </Card>
                         ))}
                 </Row>
