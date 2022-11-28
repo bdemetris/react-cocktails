@@ -11,11 +11,12 @@ import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
 import CocktailsList from './Pages/CocktailsList';
 import Search from './Components/Search';
+import GetRandomCocktail from './Pages/GetRandomCocktail';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <GetRandomCocktail />,
   },
   {
     path: "about",

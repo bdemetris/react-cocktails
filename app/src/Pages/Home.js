@@ -1,11 +1,13 @@
 import React from 'react'
+import GetRandomCocktail from './GetRandomCocktail'
+
 
 function Home() {
     return (
         <>
             <div className="serviceBox">
-                    <h1>Welcome</h1>
-                    <p>This is where the search results go</p>
+                <h1>Welcome</h1>
+                <GetRandomCocktail />
             </div>
         </>
     )
