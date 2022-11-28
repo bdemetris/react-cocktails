@@ -5,7 +5,7 @@ import GetRandomCocktail from './GetRandomCocktail'
 function Home() {
     return (
         <>
-            <div className="serviceBox">
+            <div>
                 <h1>Welcome</h1>
                 <GetRandomCocktail />
             </div>

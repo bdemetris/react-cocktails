@@ -1,9 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import { Container, Card, Row } from 'react-bootstrap';
-
-const cardStyle = {
-    width: '18rem',
-};
+import DisplayCocktail from '../Components/Cocktail';
 
 const GET_RANDOM_COCKTAIL = gql`
   query GetRandomCocktail {
@@ -11,6 +7,10 @@ const GET_RANDOM_COCKTAIL = gql`
       name
       instructions
       image
+      ingredients {
+        name
+        measure
+      }
     }
   }
 `;
@@ -23,23 +23,11 @@ function GetRandomCocktail() {
     if (error) return <p>Error : {error.message}</p>;
 
     return (
-        <div className="Cocktails" >
-            <Container className="container-fluid mt-4">
-                <Row>
-                    {
-                        data.random.map(({ name, instructions, image }) => (
-                            <Card border="secondary" height="auto" style={cardStyle} className="my-2 mx-2">
-                                <Card.Img src={image} className="my-3" />
-                                <Card.Body>
-                                    <Card.Title>{name}</Card.Title>
-                                    <Card.Text>
-                                        {instructions}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        ))}
-                </Row>
-            </Container>
+        <div>
+            {
+                data.random.map(({ name, instructions, image, ingredients }) => (
+                    <DisplayCocktail name={name} instructions={instructions} image={image} ingredients={ingredients} />
+                ))}
         </div>
     );
 }

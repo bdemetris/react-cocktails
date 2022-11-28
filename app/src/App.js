@@ -5,17 +5,24 @@ import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
+import Home from './Pages/Home';
 import About from './Pages/About';
+import GetRandomCocktail from './Pages/GetRandomCocktail';
+import CocktailsList from './Pages/ListCocktails';
+import CocktailGet from './Pages/GetCocktail';
+
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
-import Home from './Pages/Home';
-import CocktailsList from './Pages/CocktailsList';
 import Search from './Components/Search';
-import GetRandomCocktail from './Pages/GetRandomCocktail';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Home />,
+  },
+  {
+    path: "random",
     element: <GetRandomCocktail />,
   },
   {
@@ -25,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "cocktails/:cocktailName",
     element: <CocktailsList />,
+  },
+  {
+    path: "cocktail/:cocktailId",
+    element: <CocktailGet />,
   },
 ]);
 
