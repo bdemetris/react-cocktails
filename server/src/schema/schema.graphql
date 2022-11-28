@@ -1,0 +1,8 @@
+# import Coctail from 'cocktail.graphql'
+
+type Query {
+  cocktails(name: String!): [Cocktail]!
+  cocktail(id: String!): [Cocktail]!
+  random: [Cocktail]!
+}
+
