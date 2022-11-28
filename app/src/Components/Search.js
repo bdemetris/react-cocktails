@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Form, Button, Col, Row } from 'react-bootstrap';
 
 function Search() {
     const [name, setName] = useState("");
@@ -10,14 +11,22 @@ function Search() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Enter your name:
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-            </label>
-            <input type="submit" />
+            <Row>
+                <Col xs="auto" >
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </Form.Group>
+                </Col>
+                <Col xs="auto" >
+                    <Button variant="primary" type="submit">
+                        Search
+                    </Button>
+                </Col>
+            </Row>
         </form>
     )
 }

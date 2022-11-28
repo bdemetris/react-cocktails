@@ -1,5 +1,6 @@
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Container } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -31,8 +32,12 @@ function App() {
   return (
     <>
       <Navbar />
-      <Search />
-      <RouterProvider router={router} />
+      <div className="site-body">
+        <Container className="container-fluid mt-4">
+          <Search />
+          <RouterProvider router={router} />
+        </Container>
+      </div>
       <Footer />
     </>
   );
